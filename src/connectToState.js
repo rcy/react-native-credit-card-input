@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import CCFieldFormatter from "./CCFieldFormatter";
 import CCFieldValidator from "./CCFieldValidator";
 import compact from "lodash.compact";
@@ -38,7 +39,7 @@ export default function connectToState(CreditCardInput) {
       validatePostalCode: (postalCode = "") => {
         return postalCode.match(/^\d{6}$/) ? "valid" :
                postalCode.length > 6 ? "invalid" :
-               "incomplete";
+                                   "incomplete";
       },
     };
 
@@ -111,12 +112,12 @@ export default function connectToState(CreditCardInput) {
     render() {
       return (
         <CreditCardInput
-            {...this.props}
-            {...this.state}
-            onFocus={this._onFocus}
-            onChange={this._change}
-            onBecomeEmpty={this._focusPreviousField}
-            onBecomeValid={this._focusNextField} />
+          {...this.props}
+          {...this.state}
+          onFocus={this._onFocus}
+          onChange={this._change}
+          onBecomeEmpty={this._focusPreviousField}
+          onBecomeValid={this._focusNextField} />
       );
     }
   }
